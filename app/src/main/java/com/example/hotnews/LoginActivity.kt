@@ -33,6 +33,7 @@ import androidx.compose.material3.OutlinedTextField
 
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 
 import androidx.compose.runtime.getValue
@@ -101,7 +102,14 @@ fun LoginScreen() {
                     fontSize = 36.sp,
                     fontWeight = FontWeight.Bold
                 ),
-//                style = MaterialTheme.typography.h4,
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+            Text(
+                text = "Login to your HotNews account",
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Normal
+                ),
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
@@ -133,6 +141,27 @@ fun LoginScreen() {
                 shape = RoundedCornerShape(10)
             )
 
+            Spacer(modifier = Modifier.height(4.dp))
+
+            // Forgot Password button
+            TextButton(
+                modifier = Modifier.align(Alignment.End),
+                onClick = {
+                    val email = emailState
+                    if (email.isNotBlank()) {
+                        sendPasswordResetEmail(email, context)
+                    } else {
+                        Toast.makeText(context, "Please enter your email.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            ) {
+                Text(
+                    text = "Forgot Password?",
+                    style = TextStyle(color = Color.Gray),
+                    modifier = Modifier.padding(vertical = 8.dp)
+                )
+            }
+
             Spacer(modifier = Modifier.height(20.dp))
 
             // Login button
@@ -154,43 +183,7 @@ fun LoginScreen() {
                 )
             }
 
-
-            // Login with Google option
-
-//            Row(
-//            ) {
-//                Button(
-//                    onClick = {
-//
-//                    },
-//                    modifier = Modifier
-//                        .background(Color.White, shape = RoundedCornerShape(8.dp))
-//                        .fillMaxWidth()
-//                        .height(50.dp)
-//                    ,colors = ButtonDefaults.buttonColors(Color(0xFFE4E4E4))
-//
-//
-//                ) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.google,),
-//                            contentDescription = "Trailing Icon",
-//                            modifier = Modifier
-//                                .size(40.dp)
-//                                .padding(bottom = 4.dp),
-//                        )
-//                        Spacer(modifier = Modifier.width(32.dp))
-//                        Text(
-//                            text = "Login with Google",
-//                            style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.SemiBold, color = Color.Black
-//                            ),
-//                            modifier = Modifier.padding(end = 8.dp)
-//
-//                        )
-//                    }
-//            }
             Spacer(modifier = Modifier.height(24.dp))
-
-
 
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -239,6 +232,17 @@ private fun signInWithEmailAndPassword(email: String, password: String, context:
                 // Login failed, handle the error
                 val errorMessage = task.exception?.message ?: "Unknown error"
                 Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
+            }
+        }
+}
+
+private fun sendPasswordResetEmail(email: String, context: Context) {
+    FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+        .addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(context, "Password reset email sent.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Failed to send password reset email.", Toast.LENGTH_SHORT).show()
             }
         }
 }
