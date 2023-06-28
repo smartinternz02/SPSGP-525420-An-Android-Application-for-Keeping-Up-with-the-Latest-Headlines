@@ -146,7 +146,7 @@ fun RegisterScreen() {
                     registerWithEmailAndPassword(email, password, context)
                 },
                 modifier = Modifier
-                    .background(Color.White, shape = RoundedCornerShape(8.dp))
+                    .background(Color.Transparent, shape = RoundedCornerShape(8.dp))
                     .fillMaxWidth()
                     .height(50.dp)
             ) {
@@ -164,7 +164,7 @@ fun RegisterScreen() {
             ) {
                 Text(
                     text = "Already a User? ",
-                    style = TextStyle(fontSize = 14.sp, color = Color.Black)
+                    style = TextStyle(fontSize = 14.sp, color = Color.DarkGray)
                 )
 
                 Text(

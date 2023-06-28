@@ -165,7 +165,7 @@ fun LoginScreen() {
                     signInWithEmailAndPassword(email, password, context)
                 },
                 modifier = Modifier
-                    .background(Color.White, shape = RoundedCornerShape(8.dp))
+                    .background(Color.Transparent, shape = RoundedCornerShape(8.dp))
                     .fillMaxWidth()
                     .height(50.dp)
             ) {
@@ -183,7 +183,7 @@ fun LoginScreen() {
             ) {
                 Text(
                     text = "Not a User? ",
-                    style = TextStyle(fontSize = 14.sp, color = Color.Black)
+                    style = TextStyle(fontSize = 14.sp, color = Color.DarkGray)
                 )
 
                 Text(
