@@ -27,7 +27,7 @@ To fetch the news data, the app utilizes the Retrofit library, which is a powerf
 #### Get all items
 
 ```http
-  GET /api/items
+  (https://newsapi.org/)
 ```
 
 | Parameter | Type     | Description                |
