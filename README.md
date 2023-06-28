@@ -40,24 +40,19 @@ To fetch the news data, the app utilizes the Retrofit library, which is a powerf
 
 
 
-## Demo
+## Demo Video
 https://youtu.be/pJ7zWsd8bMY
 
 
-## Documentation
+## Project Report
 
-[Documentation](https://writer.zoho.in/writer/open/kq3sv0b69e93dc5984756927d8c1c6c7b7b57)
+[Documentation](https://github.com/smartinternz02/SPSGP-521966-An-Android-Application-for-Keeping-Up-with-the-Latest-Headlines/blob/master/Project%20Report.pdf)
 
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/1fn_mIFAlpiL9vjuBBLX_WJvLcMBMa9Aq/view?usp=drive_link)
-![App Screenshot](https://drive.google.com/file/d/1pNFvREhjm3hxfn8p1biA9Ra0B_zBLiCj/view?usp=drive_link)
-![App Screenshot](https://drive.google.com/file/d/1oWFQdYLIkq1VqClbrX_WrWEHEdALgDpA/view?usp=drive_link)
-![App Screenshot](https://drive.google.com/file/d/1ImY6haHZys_zpVFIHZoqiAoA8Rv3Hh0j/view?usp=drive_link)
-![App Screenshot](https://drive.google.com/file/d/1FZ6blJfUIap_NSYPmWrznCsOL2QiCGWP/view?usp=drive_link)
-![App Screenshot](https://drive.google.com/file/d/1uYx4Kp5bGC-MQkk_8TTr1ZIDxf4VSorn/view?usp=drive_link)
-
+![App Screenshot](https://github.com/smartinternz02/SPSGP-521966-An-Android-Application-for-Keeping-Up-with-the-Latest-Headlines/assets/24516423/0f2d45c3-0cfa-49e6-a630-a19d2c4b6bfe)
+![App Screenshot](https://github.com/smartinternz02/SPSGP-521966-An-Android-Application-for-Keeping-Up-with-the-Latest-Headlines/assets/24516423/1a20680c-fb86-46a4-a612-d623841b9bdb)
 
 
 ## Acknowledgements
