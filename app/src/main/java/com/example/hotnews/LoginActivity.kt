@@ -26,8 +26,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 
-import androidx.compose.material3.ExperimentalMaterial3Api
-
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 
@@ -69,14 +67,12 @@ class LoginActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     LoginScreen()
-
                 }
             }
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen() {
     var emailState by remember {
@@ -104,6 +100,7 @@ fun LoginScreen() {
                 ),
                 modifier = Modifier.padding(bottom = 16.dp)
             )
+
             Text(
                 text = "Login to your HotNews account",
                 style = TextStyle(
@@ -147,12 +144,8 @@ fun LoginScreen() {
             TextButton(
                 modifier = Modifier.align(Alignment.End),
                 onClick = {
-                    val email = emailState
-                    if (email.isNotBlank()) {
-                        sendPasswordResetEmail(email, context)
-                    } else {
-                        Toast.makeText(context, "Please enter your email.", Toast.LENGTH_SHORT).show()
-                    }
+                    val intent = Intent(context, ForgotPassActivity::class.java)
+                    context.startActivity(intent)
                 }
             ) {
                 Text(
@@ -169,7 +162,6 @@ fun LoginScreen() {
                 onClick = {
                     val email = emailState
                     val password = passwordState
-//                    showToast(context,email+password)
                     signInWithEmailAndPassword(email, password, context)
                 },
                 modifier = Modifier
@@ -209,7 +201,6 @@ fun LoginScreen() {
     }
 }
 
-
 private fun showToast(context: Context, message: String) {
     CoroutineScope(Dispatchers.Main).launch {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
@@ -221,7 +212,7 @@ private fun signInWithEmailAndPassword(email: String, password: String, context:
         .addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 // Login successful, handle the logged-in user
-                Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
+                showToast(context, "Login successful")
 
                 val intent = Intent(context, MainActivity::class.java)
                 intent.putExtra("email",email)
@@ -231,18 +222,7 @@ private fun signInWithEmailAndPassword(email: String, password: String, context:
             } else {
                 // Login failed, handle the error
                 val errorMessage = task.exception?.message ?: "Unknown error"
-                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
-            }
-        }
-}
-
-private fun sendPasswordResetEmail(email: String, context: Context) {
-    FirebaseAuth.getInstance().sendPasswordResetEmail(email)
-        .addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Toast.makeText(context, "Password reset email sent.", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(context, "Failed to send password reset email.", Toast.LENGTH_SHORT).show()
+                showToast(context, errorMessage)
             }
         }
 }
