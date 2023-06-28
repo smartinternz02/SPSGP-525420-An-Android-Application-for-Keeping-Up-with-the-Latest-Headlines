@@ -143,7 +143,11 @@ fun RegisterScreen() {
                 onClick = {
                     val email = emailState
                     val password = passwordState
-                    registerWithEmailAndPassword(email, password, context)
+                    if (email.isNotEmpty() && password.isNotEmpty()) {
+                        registerWithEmailAndPassword(email, password, context)
+                    } else {
+                        showToast(context,"Please fill in all the fields!")
+                    }
                 },
                 modifier = Modifier
                     .background(Color.Transparent, shape = RoundedCornerShape(8.dp))
