@@ -82,6 +82,7 @@ fun LoginScreen() {
         mutableStateOf("")
     }
     val context = LocalContext.current
+    val fillVal = remember { mutableStateOf(false) }
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -162,7 +163,12 @@ fun LoginScreen() {
                 onClick = {
                     val email = emailState
                     val password = passwordState
-                    signInWithEmailAndPassword(email, password, context)
+                    if (email.isNotEmpty() && password.isNotEmpty()) {
+                        signInWithEmailAndPassword(email, password, context)
+
+                    } else {
+                        showToast(context,"Please fill in all the fields!")
+                    }
                 },
                 modifier = Modifier
                     .background(Color.Transparent, shape = RoundedCornerShape(8.dp))
@@ -199,6 +205,7 @@ fun LoginScreen() {
             }
         }
     }
+
 }
 
 private fun showToast(context: Context, message: String) {
@@ -208,6 +215,7 @@ private fun showToast(context: Context, message: String) {
 }
 
 private fun signInWithEmailAndPassword(email: String, password: String, context: Context) {
+
     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
         .addOnCompleteListener { task ->
             if (task.isSuccessful) {
