@@ -138,7 +138,7 @@ fun RegisterScreen() {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Login button
+            // Sign Up button
             Button(
                 onClick = {
                     val email = emailState
@@ -157,41 +157,6 @@ fun RegisterScreen() {
             }
 
             Spacer(modifier = Modifier.height(24.dp))
-
-            // Login with Google option
-
-//            Row(
-//            ) {
-//                Button(
-//                    onClick = { /* Button click handler */ },
-//                    modifier = Modifier
-//                        .background(Color.White, shape = RoundedCornerShape(8.dp))
-//                        .fillMaxWidth()
-//                        .height(50.dp)
-//                    ,colors = ButtonDefaults.buttonColors(Color(0xFFE4E4E4))
-//
-//
-//                ) {
-//                    Image(
-//                        painter = painterResource(id = R.drawable.google,),
-//                        contentDescription = "Trailing Icon",
-//                        modifier = Modifier
-//                            .size(40.dp)
-//                            .padding(bottom = 4.dp),
-//                    )
-//                    Spacer(modifier = Modifier.width(32.dp))
-//                    Text(
-//                        text = "Sign Up with Google",
-//                        style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.SemiBold, color = Color.Black
-//                        ),
-//                        modifier = Modifier.padding(end = 8.dp)
-//
-//                    )
-//                }
-//            }
-//            Spacer(modifier = Modifier.height(24.dp))
-
-
 
             Column(
                 modifier = Modifier.fillMaxWidth(),

@@ -43,6 +43,11 @@
             android:label="HotNews"
             android:theme="@style/Theme.HotNews"></activity>
         <activity
+            android:name=".ForgotPassActivity"
+            android:exported="true"
+            android:label="ForgotPassWord"
+            android:theme="@style/Theme.HotNews" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
