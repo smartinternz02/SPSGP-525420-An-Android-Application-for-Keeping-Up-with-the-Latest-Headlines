@@ -1,19 +1,19 @@
 
 # Hot News
 
-[App Overview]
+## App Overview
 
 The app we created is a Newsroom Android application built using Jetpack Compose, which is a modern toolkit for building native Android UIs. It provides a smooth and seamless user experience while browsing and reading the latest news from various sources.
 
-[User Interface]
+## User Interface
 
 The user interface of the app is designed to be intuitive and user-friendly. As you scroll through the app, you can easily navigate through different news articles. The top bar dynamically hides and appears as you scroll, giving you more space to read the news content.
 
-[News Categories]
+## News Categories
 
 The app offers news articles from different categories. You can choose your preferred category by simply scrolling horizontally through the scrollable tab row. Each category represents a specific topic, allowing you to easily find news that interests you the most.
 
-[Data Retrieval]
+## Data Retrieval
 
 To fetch the news data, the app utilizes the Retrofit library, which is a powerful networking library for Android. It communicates with the News API through a GET request, enabling us to retrieve the latest news articles from various sources.
 
